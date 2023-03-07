@@ -1,0 +1,54 @@
+cd drfsite
+py -m venv VirEnv
+VirEnv\Scripts\Activate.ps1
+
+django-admin startproject drfsite
+python manage.py startapp women
+python manage.py makemigrations
+python manage.py migrate
+python manage.py showmigrations
+python manage.py createsuperuser
+python manage.py runserver
+
+
+
+http://127.0.0.1:8000
+http://127.0.0.1:8000/admin/
+http://127.0.0.1:8000/api/v1/womenlist/
+
+black --line-length=79 ./
+pip install -r requirements.txt
+
+
+
+Работа с данными из бд из кода (не из админ панели)
+
+python manage.py shell
+from orders.models import SalesOrder
+SalesOrder.objects.all()
+order = SalesOrder.objects.all()[0]
+order.amount
+
+order1, order2 = SalesOrder.objects.all()
+order1.user
+order2.user
+
+
+python manage.py startapp products
+
+python manage.py shell
+from orders.models import SalesOrder
+order = SalesOrder.objects.all()[1]
+order.products.all()
+order.products.all()[0].name
+
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+http://127.0.0.1:8000/api/orders/?format=json
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.js" integrity="sha512-A/D/17S8jG62ka9f3jPwMs+bKGJ1f/xQts7bAUjTIKQf0anTGjlpuEz3q9q++3qRAVYKS3iVx6KzM8GPtIaYfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+http://127.0.0.1:8000/orders_page/
