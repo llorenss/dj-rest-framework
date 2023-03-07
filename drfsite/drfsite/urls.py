@@ -21,8 +21,13 @@ from women.views import WomenViewSet
 from rest_framework import routers
 
 
-router = routers.SimpleRouter()
-router.register(r'women', WomenViewSet)
+# router = routers.SimpleRouter()
+# SimpleRouter убирает из адреса api/v1/, а DefaultRouter оставляет
+router = routers.DefaultRouter()
+router.register(r'women', WomenViewSet, basename='women')
+# router.register(r'women', WomenViewSet)
+print(router.urls)
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -35,3 +40,16 @@ urlpatterns = [
     # include(router.urls) - включаем все маршруты, находящиеся в коллекции router
     path('api/v1/', include(router.urls)), # http://127.0.0.1:8000/api/v1/women/
 ]
+
+# префикс women (women-list, women-detail) наследуется из названия модели,
+# from women.views import WomenViewSet
+# а не из router.register(r'women', WomenViewSet)
+
+# router.register(r'women', WomenViewSet, basename='new_women')
+
+# basename='new_women' = кс women (women-list, women-detail)
+# мы без basename переназначаем именно префикс.
+# basename - обязателен, если во вью нет атрибута queryset = ...
+
+# router.register(r'women', WomenViewSet) - здесь начала моршрута, любое слово
+# назначаем именно на странице урлов
