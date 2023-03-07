@@ -60,11 +60,6 @@ http://127.0.0.1:8000/api/v1/womenlist/
 
 http://127.0.0.1:8000/api/v1/women/
 
-
-
-
-
-
 post query
 
 {
@@ -72,3 +67,14 @@ post query
 "content":"gto",
 "cat":3
 }
+
+permissons
+ссылка на урок selfedu урок №10 django-rest-framework
+https://youtu.be/PQwDeI0DDW4
+- ограничения доступ
+- авто заполнение айди автора при внесении записи HiddenField
+- создание собственного класса permissons (читать могут все, а удалять, например, только админ)
+- разрешение менять запись только автору, а просматривать всем (есть на сайте джанго док в примерах)
+
+
+https://youtu.be/PQwDeI0DDW4
